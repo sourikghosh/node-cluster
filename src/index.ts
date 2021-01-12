@@ -19,10 +19,10 @@ const PORT = process.env.PORT || 4000
 
 if (cluster.isMaster) {
     for (let i = 0; i < numCpu; i++)
-        cluster.fork()
+        cluster.fork();
     cluster.on('exit', (worker, code, signal) => {
         console.log(`${worker.process.pid} died`)
-        cluster.fork()
+        cluster.fork();
     })
 }
 else {
